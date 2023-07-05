@@ -33,9 +33,9 @@ LIMIT 100;
 )
 
 BIGGEST_EXTENSIONS = (
-    ("extension", "total_size"),
+    ("extension", "total_size", "total_files"),
     """\
-SELECT extension, SUM(size_bytes) AS total_size
+SELECT extension, SUM(size_bytes) AS total_size, count(*) as total_files
 FROM file
 GROUP BY extension
 ORDER BY total_size DESC
